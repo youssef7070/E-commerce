@@ -1,0 +1,107 @@
+<nav class="bg-gray-700 border-gray-200 ">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <!-- max-w-screen -->
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <i class="fa-brands fa-opencart fa-2x text-green-600"></i>
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-green-600">FreshCart</span>
+        </a>
+        <button data-collapse-toggle="navbar-default" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+        </button>
+        <div class="hidden w-full md:flex md:w-auto flex-grow items-center" id="navbar-default">
+            @if (isLogin === true ){
+            <ul
+                class="font-medium flex flex-col p-4 md:p-0 mt-4 border  rounded-lg md:flex-row md:space-x-3 rtl:space-x-reverse md:mt-0 md:border-0 ms-4  ">
+                <li>
+                    <a routerLink="/home" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="#" routerLink="/cart" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">Cart</a>
+                </li>
+                <li>
+                    <a href="#" routerLink="/products" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-bla hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">Products</a>
+                </li>
+                <li>
+                    <a href="#" routerLink="/categories" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">Categories</a>
+                </li>
+                <li>
+                    <a href="#" routerLink="/brands" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">Brands</a>
+                </li>
+            </ul>
+            }
+            <ul
+                class="font-medium flex flex-col p-4 md:p-0 mt-4 border   rounded-lg  md:flex-row md:space-x-3 rtl:space-x-reverse md:mt-0 md:border-0 ms-auto  items-center">
+                <!-- make ms-auto because it changed not make in blanked beacause they dont change (best way) -->
+                <li class="flex items-center space-x-2">
+                    <a href="#"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+                @if (isLogin === false){
+                <li>
+                    <a href="#" routerLink="/login" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">login</a>
+                </li>
+                <li>
+                    <a href="#" routerLink="/register" routerLinkActive="text-green-600"
+                        class="block py-2 px-3 rounded-sm md:p-0  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">Register</a>
+                </li>
+                }
+                <!-- isLogin === true -->
+                @else{
+                <li>
+                    <a routerLink="/cart" routerLinkActive="text-green-600"
+                        class="text-2xl relative   block py-2 px-3 rounded-sm md:p-0 cursor-pointer  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">
+                        <i class="fas fa-cart-shopping"></i>
+                        <!-- counter -->
+                        <span class="absolute top-0 end-0 z-10 bg-green-700 text-white text-[10px] p-1 rounded-lg">
+                            {{count()}}
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a (click)="signOut()"
+                        class="block py-2 px-3 rounded-sm md:p-0 cursor-pointer  text-black hover:text-green-600 transition-colors duration-200"
+                        aria-current="page">SignOut</a>
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

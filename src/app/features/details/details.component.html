@@ -1,0 +1,21 @@
+<section class="py-14">
+    <div class="theContainer">
+        <h1 class="text-center text-5xl mb-4">Details Products:</h1>
+        <div class="gridsm:drid-cols-12 flex items-center gap-4">
+            <div class="col-span-3">
+                <img [src]="productDtails.imageCover" class="w-100" [alt]="productDtails.title">
+            </div>
+            <div class="col-span-9">
+                <h2 class="text-2xl">{{productDtails.title}}</h2>
+                <p class="text-gray-700 text-sm my-2">{{productDtails.description}}</p>
+                <span>{{productDtails.category.name}}</span>
+                <div class="flex items-center justify-between gap-2 mt-2">
+                    <span>{{productDtails.price}}EGP</span>
+                    <span class="flex"><i class="fas fa-star text-yellow-500"></i>
+                        {{productDtails.ratingsAverage}}</span>
+                </div>
+                <button (click)="addProductItemToCart(productDtails._id)" class=" btn mt-2">Add To Cart</button>
+            </div>
+        </div>
+    </div>
+</section>

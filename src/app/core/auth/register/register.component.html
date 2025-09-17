@@ -1,0 +1,39 @@
+<section class=" w-10/12 mx-auto   bg-gray-200 rounded-lg border border-gray-200 p-4 shadow-md md:1/2 m-auto my-14 ">
+    <h1 class="text-center mb-3 font-light text-3xl">Register Now</h1>
+    <!-- [formGroup]="registerForm" ==> if there are another FormGroup -->
+    <!-- (ngSubmit)="submitForm() ==> when click on submit button or Enter call submitForm function -->
+    <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+
+        <!-- name -->
+        <app-input [control]="registerForm.get('name')" [typeInput]="'text'" [idInput]="'name'"
+            [lableInput]="'Name'"></app-input>
+        <!-- email -->
+        <app-input [control]="registerForm.get('email')" [typeInput]="'email'" [idInput]="'email'"
+            [lableInput]="'Emial'">
+        </app-input>
+        <!-- password -->
+        <app-input [control]="registerForm.get('password')" [typeInput]="'password'" [idInput]="'password'"
+            [lableInput]="'Password'">
+            Please Enter At Least 6 Words Or Numbers
+        </app-input>
+        <!-- rePassword -->
+        <app-input [control]="registerForm.get('rePassword')" [typeInput]="'password'" [idInput]="'rePassword'"
+            [lableInput]="'RePassword'"></app-input>
+        <!-- tel -->
+        <app-input [control]="registerForm.get('phone')" [typeInput]="'tel'" [idInput]="'phone'" [lableInput]="'Phone'">
+            Please Enter Egyptian Number
+        </app-input>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn mt-4" [disabled]="isLoading">
+            Register
+            @if (isLoading) {
+            <span> <i class="fas fa-spinner animate-spin"></i></span>
+            }</button>
+        <!-- is there are meassage insert the error measse -->
+        @if(msgError){
+        <p class="text-center text-red-900 mt-4 p-4 bg-red-200">{{ msgError }}</p>
+        }
+
+    </form>
+</section>

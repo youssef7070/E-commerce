@@ -1,0 +1,18 @@
+<app-main-slider></app-main-slider>
+<app-popular-categories></app-popular-categories>
+
+<section class=" bg-gray-100 py-15 border border-gray-400">
+    <div class="theContainer">
+        <h2 class=" text-green-500 text-5xl text-center font-medium  ">
+            Popular Produts</h2>
+        <!-- gird -->
+        <!-- first 8 only to make as popular products -->
+        <div class="parent mt-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            @for (product of productList.slice(0,8); track product.id) {
+
+            <app-card [product]="product"></app-card>
+            }
+        </div>
+
+    </div>
+</section>

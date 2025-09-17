@@ -1,0 +1,23 @@
+<div class="card bg-white overflow-hidden group/card ">
+    <!-- drtails -->
+    <div class="cursor-pointer" [routerLink]=" ['/details' , product.slug , product._id ]">
+        <!-- the contect of card -->
+        <img [src]="product.imageCover" class="w-full h-[15rem]" alt="{{product.title}}" />
+        <div class="px-2 py-4 grid gap-y-1">
+            <h4 class="text-green-500 text-xs">category : {{product.category.name | lowercase}}</h4>
+            <h3 class="font-medium line-clamp-1
+            ">Title: {{product.title}}</h3>
+            <div class="flex justify-between items-center">
+                <!-- make pipe for price -->
+                <span>{{product.price |currency : 'EUR'}} EGP</span>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-yellow-300"></i>
+                    <span class="text-gray-500">{{product.ratingsAverage}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)="addProductItemToCart(product._id)"
+        class="btn translate-y-[120%]  group-hover/card:translate-y-0">Add To
+        Cart</button>
+</div>

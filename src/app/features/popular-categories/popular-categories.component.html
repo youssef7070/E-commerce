@@ -1,0 +1,22 @@
+<section class="py-10 ">
+    <h2 class=" text-green-500 text-5xl text-center font-medium  mb-10">Popular Categories </h2>
+    <div class="theContainer border-2 border-green-500">
+
+        <!-- this way if you use api -->
+
+        @if(categoriesList.length > 0){
+        <owl-carousel-o [options]="categoriesOptions">
+            @for (category of categoriesList; track category._id) {
+            <ng-template carouselSlide [id]="category._id">
+                <div class="div border border-green-700  p-2">
+                    <img [src]="category.image" class="w-full h-40" [alt]="category.name" [title]="category.name">
+                    <h3 class="mt-2">{{category.name}}</h3>
+
+                </div>
+            </ng-template>
+            }
+        </owl-carousel-o>
+        }
+    </div>
+
+</section>
