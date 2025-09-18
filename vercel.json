@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/node"
+        }
+    ],
+    "buildCommand": "npm install --legacy-peer-deps && npm run build:ssr",
+    "outputDirectory": "dist/Ecommerce/browser",
+    "framework": "angular"
+}
