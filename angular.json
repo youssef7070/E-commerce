@@ -112,6 +112,16 @@
               "src/styles.css"
             ]
           }
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "browserTarget": "Ecommerce:build:production",
+            "serverTarget": "Ecommerce:server:production",
+            "routes": [
+              "/"
+            ]
+          }
         }
       }
     }

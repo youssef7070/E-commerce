@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:ssr": "ng build && ng run Ecommerce:server",
+    "build:ssr": "ng build && ng run Ecommerce:server && ng run Ecommerce:prerender",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr": "node dist/Ecommerce/server/server.mjs",
