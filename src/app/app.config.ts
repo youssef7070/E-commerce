@@ -21,6 +21,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     // importProvidersFrom : make import for any module
     importProvidersFrom(CookieService, NgxSpinnerModule),
-    provideToastr()
+    provideToastr(),
+
   ]
 };
