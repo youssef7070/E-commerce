@@ -1,4 +1,4 @@
-import { config as prerenderConfig } from '../../prerender.config';
+import { config as prerenderConfig } from '../prerender.config';
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
 import { provideServerRendering, withRoutes } from '@angular/ssr';
 import { appConfig } from './app.config';

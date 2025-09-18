@@ -10,7 +10,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "prerender.config.ts"
+    "src/prerender.config.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"
