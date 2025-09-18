@@ -66,7 +66,7 @@ export class AuthServiceService {
 
   // 3)Password
   submitResetPassword(data: object): Observable<any> {
-    return this.httpClient.post(environment.baseUrl + `auth/resetPassword`, data)
+    return this.httpClient.put(environment.baseUrl + `auth/resetPassword`, data)
   }
 
 

@@ -12,6 +12,11 @@ import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { spinnerloadingInterceptor } from './core/interceptors/spinnerloading-interceptor';
 
+import { config as prerenderConfig } from '../../prerender.config';
+import { mergeApplicationConfig } from '@angular/core';
+import { provideServerRendering, withRoutes } from '@angular/ssr';
+import { serverRoutes } from './app.routes.server';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -22,6 +27,7 @@ export const appConfig: ApplicationConfig = {
     // importProvidersFrom : make import for any module
     importProvidersFrom(CookieService, NgxSpinnerModule),
     provideToastr(),
+
 
   ]
 };
