@@ -2,11 +2,28 @@
     "version": 2,
     "builds": [
         {
-            "src": "package.json",
+            "src": "dist/[اسم-مشروعك]/server/main.js",
             "use": "@vercel/node"
         }
     ],
-    "buildCommand": "npm install --legacy-peer-deps && npm run build:ssr",
-    "outputDirectory": "dist/Ecommerce/browser",
-    "framework": "angular"
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "dist/[اسم-مشروعك]/server/main.js",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "PATCH",
+                "OPTIONS",
+                "HEAD"
+            ],
+            "headers": {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Methods": "*"
+            }
+        }
+    ]
 }

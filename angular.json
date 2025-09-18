@@ -47,7 +47,8 @@
             "prerender": false,
             "ssr": {
               "entry": "src/server.ts"
-            }
+            },
+            "outputMode": "server"
           },
           "configurations": {
             "production": {
@@ -132,7 +133,8 @@
             "browserTarget": "Ecommerce:build:production",
             "serverTarget": "Ecommerce:server:production",
             "routes": [
-              "/"
+              "/",
+              "/about"
             ]
           }
         }

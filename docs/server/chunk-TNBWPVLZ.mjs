@@ -1,2 +1,0 @@
-import './polyfills.server.mjs';
-import{c as n}from"./chunk-2TVQJ22L.mjs";import"./chunk-BYINCKQS.mjs";import"./chunk-ZDQY43XE.mjs";import{ab as t}from"./chunk-SN2ENI4S.mjs";import"./chunk-S6KH3LOX.mjs";var s=class e{role="user";friends=["youssef","ahmed","ali"];static \u0275fac=function(o){return new(o||e)};static \u0275cmp=t({type:e,selectors:[["app-categories"]],decls:0,vars:0,template:function(o,a){},dependencies:[n],encapsulation:2})};export{s as CategoriesComponent};
