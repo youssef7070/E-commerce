@@ -9,7 +9,8 @@
     "build:ssr": "ng build && ng run Ecommerce:server",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:Ecommerce": "node dist/Ecommerce/server/server.mjs"
+    "serve:ssr:Ecommerce": "node dist/Ecommerce/server/server.mjs",
+    "prerender": "ng run Ecommerce:prerender"
   },
   "prettier": {
     "overrides": [
