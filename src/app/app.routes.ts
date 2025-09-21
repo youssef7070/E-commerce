@@ -46,3 +46,125 @@ export const routes: Routes = [
     },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
+
+
+
+
+// import { Routes } from '@angular/router';
+
+// // Layouts
+// import { BlankLayoutComponent } from './core/layouts/blank-layout/blank-layout.component';
+// import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.component';
+
+// // Guards
+// import { authGuard } from './core/guards/auth-guard';
+// import { isloggedGuard } from './core/guards/islogged-guard';
+
+// export const routes: Routes = [
+//   { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+//   // 🔹 مسارات خاصة بالأوثنتيكشن
+//   {
+//     path: '',
+//     component: AuthLayoutComponent,
+//     canActivate: [isloggedGuard],
+//     children: [
+//       {
+//         path: 'login',
+//         loadComponent: () =>
+//           import('./core/auth/login/login.component').then((c) => c.LoginComponent),
+//         title: 'Login Page',
+//       },
+//       {
+//         path: 'register',
+//         loadComponent: () =>
+//           import('./core/auth/register/register.component').then((c) => c.RegisterComponent),
+//         title: 'Register Page',
+//       },
+//       {
+//         path: 'forget',
+//         loadComponent: () =>
+//           import('./core/auth/forget-password/forget-password.component').then(
+//             (c) => c.ForgetPasswordComponent
+//           ),
+//         title: 'Forget Password Page',
+//       },
+//     ],
+//   },
+
+//   // 🔹 مسارات خاصة باليوزر بعد تسجيل الدخول
+//   {
+//     path: '',
+//     component: BlankLayoutComponent,
+//     canActivate: [authGuard],
+//     children: [
+//       {
+//         path: 'home',
+//         loadComponent: () =>
+//           import('./features/home/home.component').then((c) => c.HomeComponent),
+//         title: 'Home Page',
+//       },
+//       {
+//         path: 'cart',
+//         loadComponent: () =>
+//           import('./features/cart/cart.component').then((c) => c.CartComponent),
+//         title: 'Cart Page',
+//       },
+//       {
+//         path: 'products',
+//         loadComponent: () =>
+//           import('./features/products/products.component').then((c) => c.ProductsComponent),
+//         title: 'Products Page',
+//       },
+//       {
+//         path: 'brands',
+//         loadComponent: () =>
+//           import('./features/brands/brands.component').then((c) => c.BrandsComponent),
+//         title: 'Brands Page',
+//       },
+//       {
+//         path: 'categories',
+//         loadComponent: () =>
+//           import('./features/categories/categories.component').then((c) => c.CategoriesComponent),
+//         title: 'Categories Page',
+//       },
+//       {
+//         path: 'details',
+//         loadComponent: () =>
+//           import('./features/details/details.component').then((c) => c.DetailsComponent),
+//         title: 'Details Page',
+//       },
+//       {
+//         path: 'details/:id',
+//         loadComponent: () =>
+//           import('./features/details/details.component').then((c) => c.DetailsComponent),
+//         title: 'Details Page',
+//       },
+//       {
+//         path: 'details/:slug/:id',
+//         loadComponent: () =>
+//           import('./features/details/details.component').then((c) => c.DetailsComponent),
+//         title: 'Details Page',
+//       },
+//       {
+//         path: 'checkout/:id',
+//         loadComponent: () =>
+//           import('./features/checkout/checkout.component').then((c) => c.CheckoutComponent),
+//         title: 'Checkout Page',
+//       },
+//       {
+//         path: 'allorders',
+//         loadComponent: () =>
+//           import('./features/allorders/allorders.component').then((c) => c.AllordersComponent),
+//         title: 'All Orders Page',
+//       },
+//     ],
+//   },
+
+//   // 🔹 fallback لأي route مش موجود
+//   { path: '**', redirectTo: 'home', pathMatch: 'full' },
+// ];
+
+
+
+

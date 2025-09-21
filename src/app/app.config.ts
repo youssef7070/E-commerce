@@ -1,8 +1,7 @@
 import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { provideAnimations } from "@angular/platform-browser/animations"
+import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
@@ -12,22 +11,20 @@ import { errorInterceptor } from './core/interceptors/error-interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { spinnerloadingInterceptor } from './core/interceptors/spinnerloading-interceptor';
 
-import { config as prerenderConfig } from '../prerender.config';
-import { mergeApplicationConfig } from '@angular/core';
-import { provideServerRendering, withRoutes } from '@angular/ssr';
-import { serverRoutes } from './app.routes.server';
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes), provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch(), withInterceptors([headerInterceptor, errorInterceptor, spinnerloadingInterceptor])),
+    provideRouter(routes),
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch(), withInterceptors([
+      headerInterceptor,
+      errorInterceptor,
+      spinnerloadingInterceptor
+    ])),
     provideAnimations(),
-    // importProvidersFrom : make import for any module
-    importProvidersFrom(CookieService, NgxSpinnerModule),
-    provideToastr(),
-
-
+    CookieService, // ✅ Provider عادي
+    importProvidersFrom(NgxSpinnerModule), // ✅ Module
+    provideToastr()
   ]
 };

@@ -1,18 +1,11 @@
-import { config as prerenderConfig } from '../prerender.config';
+// app.config.server.ts
 import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
-import { provideServerRendering, withRoutes } from '@angular/ssr';
+import { provideServerRendering } from '@angular/ssr';
 import { appConfig } from './app.config';
-import { serverRoutes } from './app.routes.server';
-
-// دمج كل المسارات في مصفوفة واحدة
-const allRoutes = [
-  ...serverRoutes,
-  ...(Array.isArray(prerenderConfig) ? prerenderConfig : [prerenderConfig])
-];
 
 const serverConfig: ApplicationConfig = {
   providers: [
-    provideServerRendering(withRoutes(allRoutes))
+    provideServerRendering()
   ]
 };
 

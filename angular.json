@@ -23,6 +23,8 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/Ecommerce/browser",
+            "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -31,7 +33,8 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "output": "/"
               }
             ],
             "styles": [
@@ -41,14 +44,7 @@
               "@fortawesome/fontawesome-free/css/all.min.css",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputPath": "docs",
-            "prerender": false,
-            "ssr": {
-              "entry": "src/server.ts"
-            },
-            "outputMode": "server"
+            ]
           },
           "configurations": {
             "production": {
@@ -125,7 +121,8 @@
             "production": {
               "outputHashing": "media"
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "prerender": {
           "builder": "@angular-devkit/build-angular:prerender",
@@ -134,7 +131,13 @@
             "serverTarget": "Ecommerce:server:production",
             "routes": [
               "/",
-              "/about"
+              "/home",
+              "/login",
+              "/register",
+              "/products",
+              "/cart",
+              "/checkout",
+              "/forget-password"
             ]
           }
         }

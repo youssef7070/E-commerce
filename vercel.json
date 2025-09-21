@@ -1,29 +1,18 @@
 {
-    "version": 2,
     "builds": [
         {
-            "src": "dist/[اسم-مشروعك]/server/main.js",
+            "src": "dist/Ecommerce/browser/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "dist/Ecommerce/server/**",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "dist/[اسم-مشروعك]/server/main.js",
-            "methods": [
-                "GET",
-                "POST",
-                "PUT",
-                "DELETE",
-                "PATCH",
-                "OPTIONS",
-                "HEAD"
-            ],
-            "headers": {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "*",
-                "Access-Control-Allow-Methods": "*"
-            }
+            "dest": "dist/Ecommerce/server/main.js"
         }
     ]
 }

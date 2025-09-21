@@ -9,14 +9,14 @@ import { FormsModule, ɵInternalFormsSharedModule } from "@angular/forms";
 
 @Component({
   selector: 'app-products',
-  standalone: true,       // ✅ خلي الكومبوننت standalone
+  standalone: true,
   imports: [CommonModule, CardComponent, NgxPaginationModule, SearchPipe, ɵInternalFormsSharedModule, FormsModule], // ✅ لازم تضيف CommonModule
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css'] // ✅ خليها styleUrls (جمع)
+  styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
 
-  private readonly productsService = inject(ProductsService); // ✅ خليه small case
+  private readonly productsService = inject(ProductsService);
 
   productList: Products[] = [];
   theSearch: string = '';

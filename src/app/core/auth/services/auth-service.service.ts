@@ -18,7 +18,6 @@ export class AuthServiceService {
   private readonly router = inject(Router)
 
   // register
-
   registerForm(data: object): Observable<any> {
     return this.httpClient.post(environment.baseUrl + 'auth/signup', data);
   }
@@ -29,7 +28,6 @@ export class AuthServiceService {
   }
 
   // logout 
-
   logOut(): void {
     // remove token cookies
     this.cookieService.delete('token')
@@ -68,6 +66,5 @@ export class AuthServiceService {
   submitResetPassword(data: object): Observable<any> {
     return this.httpClient.put(environment.baseUrl + `auth/resetPassword`, data)
   }
-
 
 }

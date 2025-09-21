@@ -1,49 +1,39 @@
-import express from 'express';
-import { join } from 'node:path';
-import {
-  AngularNodeAppEngine,
-  createNodeRequestHandler,
-  isMainModule,
-  writeResponseToNodeResponse,
-} from '@angular/ssr/node';
+import express, { Request, Response, NextFunction } from 'express';
+import { join } from 'path';
 
-// 📌 مجلد الـ dist/browser
-const browserDistFolder = join(import.meta.dirname, '../browser');
-
-// 📌 Angular Universal SSR Engine
-const angularApp = new AngularNodeAppEngine();
+// Angular Universal server
+import bootstrap from './main.server';
 
 const app = express();
 
-// -------- Static Files --------
-app.use(
-  express.static(browserDistFolder, {
-    maxAge: '1y',
-    index: false,
-    redirect: false,
-  }),
-);
+const browserDistFolder = join(__dirname, '../browser');
 
-// -------- Handle Angular Rendering --------
-app.use((req, res, next) => {
-  angularApp
-    .handle(req)
-    .then(response =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
-    .catch(next);
+// ✅ Serve static files
+app.use(express.static(browserDistFolder, {
+  maxAge: '1y'
+}));
+
+// ✅ Universal engine
+app.get('*', (req: Request, res: Response, next: NextFunction) => {
+  bootstrap().then((appServerModuleNgFactory) => {
+    // Import the renderModuleFactory from @angular/platform-server
+    const { renderModuleFactory } = require('@angular/platform-server');
+    const indexHtml = require('fs').readFileSync(join(browserDistFolder, 'index.html'), 'utf8');
+    renderModuleFactory(appServerModuleNgFactory, {
+      document: indexHtml,
+      url: req.url
+    }).then((html: string) => {
+      res.status(200).send(html);
+    }).catch(next);
+  }).catch(next);
 });
 
-// -------- Run Server --------
-if (isMainModule(import.meta.url)) {
-  const port = process.env['PORT'] || 4000;
-  app.listen(port, error => {
-    if (error) {
-      throw error;
-    }
-    console.log(`🚀 Node Express server listening on http://localhost:${port}`);
-  });
-}
-
-// -------- Request Handler (لـ Angular CLI أو Firebase) --------
-export const reqHandler = createNodeRequestHandler(app);
+// ✅ Start the server
+const port = process.env['PORT'] || 4000;
+app.listen(port, (error?: any) => {
+  if (error) {
+    console.error('❌ Error starting server:', error);
+  } else {
+    console.log(`✅ Node Express server listening on http://localhost:${port}`);
+  }
+});
